@@ -31,7 +31,7 @@ const Header = () => {
                   <Link href="/">
                     <a>
                       <img
-                        src="assets/img/logo/HD.png"
+                        src="/assets/img/logo/HD.png"
                         alt="logo"
                         height="100"
                         width="100"
@@ -83,19 +83,19 @@ const Header = () => {
                         </ul>
                       </li>
                       <li className="has-dropdown">
-                        <Link href="/blog">
-                          <a>Blog</a>
+                        <Link href="/gpt">
+                          <a>gpt</a>
                         </Link>
 
                         <ul className="submenu">
                           <li>
-                            <Link href="/blog">
-                              <a>Blog</a>
+                            <Link href="/gpt">
+                              <a>gpt</a>
                             </Link>
                           </li>
                           <li>
-                            <Link href="/blog-details">
-                              <a>Blog Details</a>
+                            <Link href="/gpt-details">
+                              <a>gpt Details</a>
                             </Link>
                           </li>
                         </ul>

@@ -1,42 +1,40 @@
-import fs from 'fs'
-import { join } from 'path'
-import matter from 'gray-matter'
+// This would be in the page component file where you need the posts data.
 
-const postsDirectory = join(process.cwd(), '_posts')
-
-
-export function getPostSlugs() {
-
-  return fs.readdirSync(postsDirectory)
-}
-
-export function getPostBySlug(slug, fields = []) {
-  const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(postsDirectory, `${realSlug}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data, content } = matter(fileContents)
-  const items = {}
-
-  // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
-    if (field === 'slug') {
-      items[field] = realSlug
+export async function getStaticProps() {
+  try {
+    // Fetch the data from the API endpoint
+    const res = await fetch(`api/random-document?all=true`);
+    if (!res.ok) {
+      throw new Error(`Failed to fetch posts, received status ${res.status}`);
     }
-    if (field === 'content') {
-      items[field] = content
-    }
-    if (data[field]) {
-      items[field] = data[field]
-    }
-  })
-  return items
-}
+    const posts = await res.json();
 
-export function getAllPosts(fields = []) {
-  const slugs = getPostSlugs()
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-  return posts
+    // Map the fields from the documents if you need to limit the fields
+    const fields = ["slug", "title", "content" /* other fields you need */];
+    const mappedPosts = posts.map((post) => {
+      const mappedPost = {};
+      fields.forEach((field) => {
+        if (field === "slug") {
+          mappedPost[field] = post.web_id.toString();
+        } else if (post[field]) {
+          mappedPost[field] = post[field];
+        }
+      });
+      return mappedPost;
+    });
+
+    return {
+      props: {
+        posts: mappedPosts,
+      },
+      revalidate: 10, // In seconds, if you want to revalidate the data periodically
+    };
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    return {
+      props: {
+        error: "Failed to fetch posts.",
+      },
+    };
+  }
 }

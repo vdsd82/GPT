@@ -27,7 +27,7 @@ const HomeThreeHeroArea = () => {
                         </span>
                         <input
                           type="text"
-                          placeholder="Search for blog or calculator"
+                          placeholder="Search for gpt or calculator"
                         />
                       </div>
                       <button type="submit" className="m-btn ml-20">

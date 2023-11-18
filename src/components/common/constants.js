@@ -1,6 +1,6 @@
 export const EXAMPLE_PATH = "FindGPTPro";
 export const CMS_NAME = "Markdown";
-export const BLOG_NAME = "FindGPTPro Tools";
+export const gpt_NAME = "FindGPTPro Tools";
 export const KEYWORDS = "Find GPTs,Custom Gpts,New GPTs";
 export const DESCRIPTION =
   "Explore our curated collection of third-party GPT models, offering diverse AI solutions. From creative writing aids to sophisticated data analysis tools, find the perfect GPT to elevate your project or business with advanced machine learning capabilities. Dive into the world of GPTs and unlock new possibilities today!";

@@ -26,7 +26,7 @@
     13. Community CSS	
     14. Support CSS	
     15. Faq CSS	
-    16. Blog CSS	
+    16. gpt CSS	
     17. Documentation CSS	
     18. Pricing CSS	
     19. Sign CSS	
@@ -38,37 +38,31 @@
 
 
 -----------------------------------------------------------------------------------*/
-@import 'variables';
+@import "variables";
 // @import '../css/fontAwesome5Pro.css';
-@import 'default';
-@import 'mixins';
-@import 'common';
-@import 'header';
-@import 'hero';
-@import 'category';
-@import 'trending';
-@import 'subscribe';
-@import 'product';
-@import 'cart';
-@import 'cta';
-@import 'brand';
-@import 'testimonial';
-@import 'banner';
-@import 'about';
-@import 'community';
-@import 'support';
-@import 'faq';
-@import 'blog';
-@import 'documentation';
-@import 'pricing';
-@import 'sign';
-@import 'contact';
-@import 'featured';
-@import 'services';
-@import 'footer';
-
-
-
-
-
-
+@import "default";
+@import "mixins";
+@import "common";
+@import "header";
+@import "hero";
+@import "category";
+@import "trending";
+@import "subscribe";
+@import "product";
+@import "cart";
+@import "cta";
+@import "brand";
+@import "testimonial";
+@import "banner";
+@import "about";
+@import "community";
+@import "support";
+@import "faq";
+@import "gpt";
+@import "documentation";
+@import "pricing";
+@import "sign";
+@import "contact";
+@import "featured";
+@import "services";
+@import "footer";
