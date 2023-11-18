@@ -1,40 +1,28 @@
-// This would be in the page component file where you need the posts data.
+// Assuming that your API endpoints are structured as follows:
+// GET /api/posts -> returns all posts
+// GET /api/posts/[slug] -> returns a single post by slug
 
-export async function getStaticProps() {
-  try {
-    // Fetch the data from the API endpoint
-    const res = await fetch(`api/random-document?all=true`);
-    if (!res.ok) {
-      throw new Error(`Failed to fetch posts, received status ${res.status}`);
-    }
-    const posts = await res.json();
+export async function getPostBySlug(slug) {
+  // Replace `process.env.API_URL` with your actual API base URL
+  const res = await fetch(
+    `${process.env.SITE_URL}/api/random-document?web_id=${params.slug}`
+  );
+  const post = await res.json();
+  return post;
+}
 
-    // Map the fields from the documents if you need to limit the fields
-    const fields = ["slug", "title", "content" /* other fields you need */];
-    const mappedPosts = posts.map((post) => {
-      const mappedPost = {};
-      fields.forEach((field) => {
-        if (field === "slug") {
-          mappedPost[field] = post.web_id.toString();
-        } else if (post[field]) {
-          mappedPost[field] = post[field];
-        }
-      });
-      return mappedPost;
-    });
+export async function getAllPosts() {
+  // Replace `process.env.API_URL` with your actual API base URL
+  const res = await fetch(
+    `${process.env.SITE_URL}/api/random-document?all=true`
+  );
+  const allPosts = await res.json();
 
-    return {
-      props: {
-        posts: mappedPosts,
-      },
-      revalidate: 10, // In seconds, if you want to revalidate the data periodically
-    };
-  } catch (error) {
-    console.error("Error fetching posts:", error);
-    return {
-      props: {
-        error: "Failed to fetch posts.",
-      },
-    };
-  }
+  // If you need to sort posts by date or perform other transformations, do so here
+  // Example: Sort by date in descending order if each post has a 'date' field
+  allPosts.sort(
+    (post1, post2) => new Date(post2.web_id) - new Date(post1.web_id)
+  );
+
+  return allPosts;
 }
