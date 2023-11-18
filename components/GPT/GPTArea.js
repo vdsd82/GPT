@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Pagination from "../common/Pagination";
 import gptSideBar from "./GPTSideBar";
-import Singlegpt from "./Singlegpt";
+import Singlegpt from "./SingleGPT";
 
 const gptArea = ({ posts }) => {
   // all gpts
