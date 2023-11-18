@@ -64,33 +64,16 @@ const Header = () => {
                           </li>
                         </ul>
                       </li>
-                      <li className="has-dropdown">
-                        <Link href="/calculator">
-                          <a>Calculator</a>
-                        </Link>
 
-                        <ul className="submenu">
-                          <li>
-                            <Link href="/calculator">
-                              <a>Calculator</a>
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href="/calc-details">
-                              <a>Calculator Details</a>
-                            </Link>
-                          </li>
-                        </ul>
-                      </li>
                       <li className="has-dropdown">
                         <Link href="/gpt">
-                          <a>gpt</a>
+                          <a>GPT</a>
                         </Link>
 
                         <ul className="submenu">
                           <li>
                             <Link href="/gpt">
-                              <a>gpt</a>
+                              <a>GPT</a>
                             </Link>
                           </li>
                           <li>

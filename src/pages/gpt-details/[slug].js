@@ -8,7 +8,7 @@ import Footer from "../../components/Home/Footer";
 const gptDetails = ({ post }) => {
   return (
     <>
-      <SEO pageTitle={"gpt Details"} />
+      <SEO pageTitle={"GPT Details"} />
       <Header />
       <BgShape />
       <GPTDetailsArea webId={post.web_id} />
