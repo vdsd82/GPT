@@ -2,27 +2,11 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import gptSideBar from "../GPT/GPTSideBar";
 
-const GptDetailsArea = ({ webId }) => {
+const GptDetailsArea = ({ posts }) => {
   const [post, setPost] = useState(null);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    async function fetchGptDetails() {
-      try {
-        const response = await fetch(`/api/random-document?web_id=${webId}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setPost(data);
-      } catch (error) {
-        setError(error.message);
-      }
-    }
-
-    fetchGptDetails();
-    console.log("test", post);
-  }, [webId]);
+  setPost(post);
 
   if (error) return <div>Error: {error}</div>;
   if (!post) return <div>Loading...</div>;

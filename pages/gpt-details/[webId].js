@@ -19,7 +19,7 @@ const gptDetails = ({ post }) => {
       <SEO pageTitle={"GPT Details"} />
       <Header />
       <BgShape />
-      <GPTDetailsArea webId={post.web_id} />
+      <GPTDetailsArea posts={post} />
       <Footer />
     </>
   );
