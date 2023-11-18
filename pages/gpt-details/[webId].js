@@ -54,7 +54,6 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   try {
     const posts = await findAllDocuments();
-    console.log(posts);
     const paths = posts.map((post) => {
       // Make sure `web_id` is a property in your documents
       // Also ensure that `web_id` is converted to a string if it's not already
