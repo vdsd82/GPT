@@ -1,5 +1,5 @@
 import React from "react";
-import GPTDetailsArea from "../../components/gptDetails/gptDetailsArea";
+import GPTDetailsArea from "../../components/GPTDetails/gptDetailsArea";
 import BgShape from "../../components/common/BgShape";
 import Header from "../../components/Home/Header";
 import SEO from "../../components/seo";
