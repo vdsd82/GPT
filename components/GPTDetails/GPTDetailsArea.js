@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import gptSideBar from "../gpt/gptSideBar";
+import gptSideBar from "../GPT/GPTSideBar";
 
 const GptDetailsArea = ({ webId }) => {
   const [post, setPost] = useState(null);
