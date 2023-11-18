@@ -9,9 +9,7 @@ const GptDetailsArea = ({ webId }) => {
   useEffect(() => {
     async function fetchGptDetails() {
       try {
-        const response = await fetch(
-          `http://localhost:3000/api/random-document?web_id=${webId}`
-        );
+        const response = await fetch(`/api/random-document?web_id=${webId}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
