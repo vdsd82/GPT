@@ -851,3 +851,34 @@
   /* Add more styles for your sidebar here */
 }
 
+/* CategoryButtons.css */
+
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .categories-container {
+    width: 70%;
+  }
+}
+
+.category-button {
+  background-color: #f0f0f0; /* This will be a placeholder color */
+  border: none;
+  padding: 8px 16px;
+  margin: 4px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.category-button:hover {
+  opacity: 0.8;
+}

@@ -10,11 +10,14 @@ import {
   findAllCategories,
 } from "../../utils/mongodbUtil";
 
-const CategoryPage = ({ gpts }) => {
+const CategoryPage = ({ gpts, params }) => {
   return (
     <>
       <SEO pageTitle={"GPT Category"} />
       <Header />
+      <div className="section__title-wrapper text-center mb-5 mt-5">
+        <h2 className="section__title">GPTs for {params.category}</h2>
+      </div>
       <GPTList gpts={gpts} />
       <Footer />
     </>
@@ -34,6 +37,7 @@ export async function getStaticProps({ params }) {
     return {
       props: {
         gpts,
+        params,
       },
       revalidate: 86400, // In seconds
     };

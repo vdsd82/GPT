@@ -9,6 +9,33 @@ const getRandomLightColor = () => {
   return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 };
 
+// Styled components
+const CategoriesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  @media (min-width: 768px) {
+    width: 70%;
+  }
+  margin: auto;
+`;
+
+const CategoryButton = styled.button`
+  background-color: ${(props) => props.color};
+  border: none;
+  padding: 8px 16px;
+  margin: 4px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  text-transform: capitalize;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 // CategoryButtons component
 const CategoryButtons = () => {
   const categories = [
@@ -56,48 +83,23 @@ const CategoryButtons = () => {
     "Technology & Innovation",
   ];
 
-  // Styled components
-  const CategoriesContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    @media (min-width: 768px) {
-      width: 70%;
-    }
-    margin: auto;
-  `;
-
-  const CategoryButton = styled.button`
-    background-color: ${getRandomLightColor};
-    border: none;
-    padding: 8px 16px;
-    margin: 4px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #333;
-    text-transform: capitalize;
-    &:hover {
-      opacity: 0.8;
-    }
-  `;
-
   const handleCategoryClick = (category) => {
     // Redirect to the category page
     window.location.href = `/category/${encodeURIComponent(category)}`;
   };
   return (
-    <CategoriesContainer>
+    <div className="categories-container">
       {categories.map((category, index) => (
-        <CategoryButton
+        <button
           key={index}
+          className="category-button"
+          style={{ backgroundColor: getRandomLightColor() }} // Inline style for dynamic background color
           onClick={() => handleCategoryClick(category)}
         >
           {category}
-        </CategoryButton>
+        </button>
       ))}
-    </CategoriesContainer>
+    </div>
   );
 };
 
