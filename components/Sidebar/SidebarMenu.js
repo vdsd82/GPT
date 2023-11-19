@@ -37,63 +37,13 @@ const SidebarMenu = ({ show, handleClose }) => {
                             </Link>
                           </li>
                         </div>
-
-                        <Collapsible
-                          trigger={<Link href="/product">Pages</Link>}
-                          triggerTagName="div"
-                          triggerOpenedClassName="icon_close"
-                          triggerClassName="iconAdd"
-                          open={false}
-                        >
-                          <ul className="sidebar_sub_menu submenu text-white">
-                            <li>
-                              <Link href="/about">
-                                <a>About</a>
-                              </Link>
-                            </li>
-                          </ul>
-                        </Collapsible>
-                        <Collapsible
-                          trigger={<Link href="/calcula">Calculator</Link>}
-                          triggerTagName="div"
-                          triggerOpenedClassName="icon_close"
-                          triggerClassName="iconAdd"
-                          open={false}
-                        >
-                          <ul className="sidebar_sub_menu submenu text-white">
-                            <li>
-                              <Link href="/calculator">
-                                <a>Calculator</a>
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/calc-details">
-                                <a>Calc Details</a>
-                              </Link>
-                            </li>
-                          </ul>
-                        </Collapsible>
-
-                        <Collapsible
-                          trigger={<Link href="/gpt">gpt</Link>}
-                          triggerTagName="div"
-                          triggerOpenedClassName="icon_close"
-                          triggerClassName="iconAdd"
-                          open={false}
-                        >
-                          <ul className="sidebar_sub_menu submenu text-white">
-                            <li>
-                              <Link href="/gpt">
-                                <a>gpt</a>
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/gpt-details">
-                                <a>gpt Details</a>
-                              </Link>
-                            </li>
-                          </ul>
-                        </Collapsible>
+                        <div className="single_link iconAdd border-0">
+                          <li>
+                            <Link href="/about">
+                              <a>About</a>
+                            </Link>
+                          </li>
+                        </div>
 
                         <div className="single_link iconAdd border-0">
                           <li>
