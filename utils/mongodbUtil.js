@@ -49,3 +49,16 @@ export async function findDocumentsWithTextSearch(searchTerm) {
     .toArray();
   return documents;
 }
+export async function findDocumentsByCategory(category) {
+  const db = await connectToDatabase();
+  const collection = db.collection("CombinedData");
+  const documents = await collection.find({ Category: category }).toArray();
+  return documents;
+}
+
+export async function findAllCategories() {
+  const db = await connectToDatabase();
+  const collection = db.collection("CombinedData");
+  const categories = await collection.distinct("Category"); // Assumes 'Category' is a field in your documents
+  return categories;
+}

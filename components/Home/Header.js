@@ -12,7 +12,56 @@ const Header = () => {
   const handleShow = () => setShow(true);
   // sticky nav
   const { sticky } = useSticky();
-  // user
+
+  const categories = [
+    "Miscellaneous",
+    "Art & Design",
+    "Entertainment & Gaming",
+    "Search & Discovery",
+    "Consulting Services",
+    "Programming & Development",
+    "Content Creation",
+    "Educational Resources",
+    "Automation & Bots",
+    "Coaching & Self-improvement",
+    "Branding & Marketing",
+    "Professional Services",
+    "Expert Systems",
+    "Design & Illustration",
+    "Creative Tools",
+    "Data Analysis",
+    "Law & Governance",
+    "Productivity Tools",
+    "Product Management",
+    "Navigation & Maps",
+    "Education & Learning",
+    "Advanced Technology",
+    "Food & Culinary",
+    "Creative Writing",
+    "News & Media",
+    "Language & Translation",
+    "Health & Wellness",
+    "Architecture & Construction",
+    "SEO & Marketing",
+    "Exploration & Research",
+    "Astrology & Esoterics",
+    "Travel & Geography",
+    "Imaging & Photography",
+    "Psychology & Social Sciences",
+    "Science & Research",
+    "Engineering & Industry",
+    "Fashion & Style",
+    "Music & Audio",
+    "Finance & Economics",
+    "Fitness & Sports",
+    "Literature & Writing",
+    "Technology & Innovation",
+  ];
+  const chunkSize = 10; // Adjust chunk size based on how many items you want per column
+  const categoryChunks = [];
+  for (let i = 0; i < categories.length; i += chunkSize) {
+    categoryChunks.push(categories.slice(i, i + chunkSize));
+  }
   return (
     <>
       <header>
@@ -49,40 +98,18 @@ const Header = () => {
                           <a>Home</a>
                         </Link>
                       </li>
-                      <li className="has-dropdown">
-                        <a>Pages</a>
-                        <ul className="submenu">
-                          <li>
-                            <Link href="/about">
-                              <a>About</a>
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href="/about">
-                              <a>Disclaimer</a>
-                            </Link>
-                          </li>
-                        </ul>
-                      </li>
 
-                      <li className="has-dropdown">
-                        <Link href="/gpt">
-                          <a>GPT</a>
+                      <li>
+                        <Link href="/about">
+                          <a>About</a>
                         </Link>
-
-                        <ul className="submenu">
-                          <li>
-                            <Link href="/gpt">
-                              <a>GPT</a>
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href="/gpt-details">
-                              <a>gpt Details</a>
-                            </Link>
-                          </li>
-                        </ul>
                       </li>
+                      <li>
+                        <Link href="/about">
+                          <a>Disclaimer</a>
+                        </Link>
+                      </li>
+
                       <li>
                         <Link href="/contact">
                           <a>Contact</a>
