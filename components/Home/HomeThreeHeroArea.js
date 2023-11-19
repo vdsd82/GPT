@@ -1,7 +1,16 @@
-import React from "react";
+// components/Home/HomeThreeHeroArea.js
+
+import React, { useState } from "react";
 import { DESCRIPTION } from "../common/constants";
+import Router from "next/router";
 
 const HomeThreeHeroArea = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    Router.push(`/search-results?term=${encodeURIComponent(searchTerm)}`);
+  };
   return (
     <>
       <section
@@ -19,16 +28,20 @@ const HomeThreeHeroArea = () => {
                 <h2 className="hero__title">Discover Third Party GPTs</h2>
                 <p>{DESCRIPTION}</p>
                 <div className="hero__search">
-                  <form action="#">
+                  <form onSubmit={handleSearch}>
                     <div className="hero__search-inner hero__search-3 d-md-flex align-items-center">
                       <div className="hero__search-input">
                         <span>
                           <i className="far fa-search"></i>
                         </span>
-                        <input type="text" placeholder="Search for gpt" />
+                        <input
+                          type="text"
+                          placeholder="Search for gpt"
+                          value={searchTerm}
+                          onChange={(e) => setSearchTerm(e.target.value)}
+                        />
                       </div>
                       <button type="submit" className="m-btn ml-20">
-                        {" "}
                         <span></span> search
                       </button>
                     </div>

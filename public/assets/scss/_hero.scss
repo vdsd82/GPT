@@ -9,24 +9,24 @@
     &__height{
         min-height: 870px;
         @media #{$md}{
-            min-height: 750px;
+            min-height: 472px;
         }
         @media #{$sm}{
-            min-height: 700px;
+            min-height: 372px;
         }
         @media #{$xs}{
-            min-height: 600px;
+            min-height: 272px;
         }
         &-2{
-            min-height: 1190px;
+            min-height: 472px;
             @media #{$md}{
-                min-height: 1050px;
+                min-height: 472px;
             }
             @media #{$sm}{
-                min-height: 900px;
+                min-height: 372px;
             }
             @media #{$xs}{
-                min-height: 1050px;
+                min-height: 272px;
             }
         }
         &-3{
