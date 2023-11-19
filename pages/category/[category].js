@@ -28,11 +28,19 @@ export default CategoryPage;
 
 export async function getStaticProps({ params }) {
   try {
-    const gpts = await findDocumentsByCategory(params.category);
+    let gpts = await findDocumentsByCategory(params.category);
 
     if (!gpts.length) {
       return { notFound: true };
     }
+
+    // Convert _id to a string
+    gpts = gpts.map((gpt) => {
+      return {
+        ...gpt,
+        _id: gpt._id.toString(),
+      };
+    });
 
     return {
       props: {
