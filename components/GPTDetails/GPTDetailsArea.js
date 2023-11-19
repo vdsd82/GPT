@@ -25,6 +25,7 @@ const GptDetailsArea = ({ webId }) => {
   }, [webId]);
 
   if (error) return <div>Error: {error}</div>;
+  if (!post) return <div>Loading...</div>;
 
   return (
     <div className="content-area">
