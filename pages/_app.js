@@ -31,6 +31,46 @@ function MyApp({ Component, pageProps }) {
             `,
           }}
         />
+
+        <meta
+          property="og:url"
+          content={meta.url || "https://www.findgptpro.com"}
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={meta.title || "FindGPTPro.com"} />
+        <meta
+          property="og:description"
+          content={
+            meta.description ||
+            "Explore our curated collection of third-party GPT models, offering diverse AI solutions. From creative writing aids to sophisticated data analysis tools, find the perfect GPT to elevate your project or business with advanced machine learning capabilities. Dive into the world of GPTs and unlock new possibilities today!"
+          }
+        />
+        <meta
+          property="og:image"
+          content={
+            meta.image || "https://www.findgptpro.com/ss/DefaultImage.png"
+          }
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@FindGPTPro" />
+        <meta name="twitter:title" content={meta.title || "FindGPTPro.com"} />
+        <meta
+          name="twitter:description"
+          content={
+            meta.description ||
+            "Explore our curated collection of third-party GPT models, offering diverse AI solutions. From creative writing aids to sophisticated data analysis tools, find the perfect GPT to elevate your project or business with advanced machine learning capabilities. Dive into the world of GPTs and unlock new possibilities today!"
+          }
+        />
+        <meta
+          name="twitter:image"
+          content={
+            meta.image || "https://www.findgptpro.com/ss/DefaultImage.png"
+          }
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Head>
       <SEO
         font={
