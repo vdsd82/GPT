@@ -24,7 +24,7 @@ export default async function handler(req, res) {
   try {
     await client.connect();
     const database = client.db(dbName);
-    const collection = database.collection("CombinedData");
+    const collection = database.collection("NewCombinedData");
 
     // Convert web_id to the correct type if necessary (e.g., to an integer or ObjectId)
     const query = { web_id: parseInt(web_id) };

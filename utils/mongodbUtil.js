@@ -25,21 +25,21 @@ async function connectToDatabase() {
 
 export async function findDocumentByWebId(web_id) {
   const db = await connectToDatabase();
-  const collection = db.collection("CombinedData");
+  const collection = db.collection("NewCombinedData");
   const document = await collection.findOne({ web_id: parseInt(web_id) });
   return document;
 }
 
 export async function findAllDocuments() {
   const db = await connectToDatabase();
-  const collection = db.collection("CombinedData");
+  const collection = db.collection("NewCombinedData");
   const documents = await collection.find({}).toArray();
   return documents;
 }
 
 export async function findDocumentsWithTextSearch(searchTerm) {
   const db = await connectToDatabase();
-  const collection = db.collection("CombinedData");
+  const collection = db.collection("NewCombinedData");
   const documents = await collection
     .find(
       { $text: { $search: searchTerm } },
@@ -51,14 +51,14 @@ export async function findDocumentsWithTextSearch(searchTerm) {
 }
 export async function findDocumentsByCategory(category) {
   const db = await connectToDatabase();
-  const collection = db.collection("CombinedData");
+  const collection = db.collection("NewCombinedData");
   const documents = await collection.find({ Category: category }).toArray();
   return documents;
 }
 
 export async function findAllCategories() {
   const db = await connectToDatabase();
-  const collection = db.collection("CombinedData");
+  const collection = db.collection("NewCombinedData");
   const categories = await collection.distinct("Category"); // Assumes 'Category' is a field in your documents
   return categories;
 }
