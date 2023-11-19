@@ -779,6 +779,15 @@
   margin-right: 20px; /* Space between content and sidebar */
 }
 
+/* Media query for small devices */
+@media (max-width: 768px) { /* Adjust the max-width as needed */
+  .main-content {
+    width: 100%;
+    margin-right: 0; /* Remove the margin if you want the content to span the entire width */
+  }
+}
+
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
