@@ -13,9 +13,9 @@ const AboutArea = () => {
           <div className="row">
             <div className="col-xxl-10 offset-xxl-1 col-xl-10 offset-xl-1">
               <div className="about__wrapper">
-                <span className="about__sub-title">About FindGPTPro</span>
-                <h3 className="about__title">
-                  We are enabling <br /> you to find useful GPTs
+                <span className="about__title">About FindGPTPro</span>
+                <h3 className="about__sub-title">
+                  We are enabling you to find useful GPTs
                 </h3>
                 <div
                   className="about__thumb w-img wow fadeInUp"

@@ -105,8 +105,8 @@ const Header = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link href="/about">
-                          <a>Disclaimer</a>
+                        <Link href="/privacy">
+                          <a>Privacy</a>
                         </Link>
                       </li>
 
