@@ -14,13 +14,18 @@ const HomeThreeHeroArea = () => {
   return (
     <>
       <section
-        className="hero__area hero__height hero__height-2 grey-bg-3 d-flex align-items-center"
+        className="hero__area hero__height hero__height-2 grey-bg-3 d-flex align-items-center container-with-badge"
         style={{
           background: `url(assets/img/hero/sl-bg.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
+        <img
+          src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=426024&theme=light"
+          alt="FindGPTPro - Custom GPT repository | Product Hunt"
+          className="product-hunt-badge"
+        />
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xxl-9 col-xl-10 col-lg-11 col-md-12 col-sm-12">

@@ -583,3 +583,34 @@
         @include transform(rotate(-20deg));
     }
 }
+
+/* Add this class to the container in which you want to place the Product Hunt badge */
+.container-with-badge {
+    position: relative;
+  }
+  
+  /* Existing styles for large devices */
+.product-hunt-badge {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 250px;
+    height: 54px;
+    z-index: 10;
+  }
+  
+  /* Responsive adjustments for smaller devices */
+  @media (max-width: 768px) {
+    .product-hunt-badge {
+      width: 200px; /* Reduce size */
+      height: auto; /* Maintain aspect ratio */
+      top: 10px; /* Adjust the position as needed */
+      left: 50%; /* Adjust the position as needed */
+    }
+  
+    .hero__title {
+      padding-top: 100px; /* Add padding to make space for the badge */
+    }
+  }
+  
+  
