@@ -7,10 +7,10 @@ const uri = process.env.MONGODB_URI; // Your MongoDB connection string
 const dbName = "GPT-Combined";
 
 export default async function handler(req, res) {
-  const { web_id, all, category } = req.query; // Changed searchTerm to category
+  const { web_id, all, category, searchTerm } = req.query;
 
   // Create a unique cache key based on the request
-  const cacheKey = web_id || all || category || "random";
+  const cacheKey = `${web_id || all || category || searchTerm || "random"}`;
   const cachedData = cache.get(cacheKey); // Try to retrieve cached data
 
   if (cachedData) {
@@ -26,7 +26,11 @@ export default async function handler(req, res) {
     const collection = database.collection("NewCombinedData");
 
     let documents;
-    if (category) {
+    if (searchTerm) {
+      // Modify this query to search in the appropriate fields (e.g., Title or Description)
+      const searchQuery = { $text: { $search: searchTerm } };
+      documents = await collection.find(searchQuery).toArray();
+    } else if (category) {
       // Query for documents where the Category field matches the category query parameter
       documents = await collection.find({ Category: category }).toArray();
     } else if (web_id) {
