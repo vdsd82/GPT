@@ -39,7 +39,6 @@ const CategoryButton = styled.button`
 // CategoryButtons component
 const CategoryButtons = () => {
   const categories = [
-    "Miscellaneous",
     "Art & Design",
     "Entertainment & Gaming",
     "Search & Discovery",
@@ -81,8 +80,8 @@ const CategoryButtons = () => {
     "Fitness & Sports",
     "Literature & Writing",
     "Technology & Innovation",
+    "Miscellaneous",
   ];
-
   const handleCategoryClick = (category) => {
     // Redirect to the category page
     window.location.href = `/category/${encodeURIComponent(category)}`;
