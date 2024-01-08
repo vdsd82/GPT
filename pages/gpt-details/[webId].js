@@ -7,16 +7,40 @@ import Header from "../../components/Home/Header";
 import SEO from "../../components/seo";
 import Footer from "../../components/Home/Footer";
 import { findDocumentByWebId, findAllDocuments } from "../../utils/mongodbUtil";
+import Head from "next/head";
 
 const gptDetails = ({ post }) => {
   // Ensure that post is not null before trying to access its properties
   if (!post) {
     return <div>Post not found</div>;
   }
+  let keywords = `${post.Title}, GPT, AI, Technology, ChatGPT, Artificial Intelligence`;
+  if (post.Tags && post.Tags !== "NaN") {
+    keywords += `, ${post.Tags}`;
+  }
+  const metaTitle = `${post.Title} - In-depth Analysis and Details`;
+  const metaDescription = `Custom GPT | ${post.Description}`;
+  const metaImage = "https://findgptpro.com/details/findgptpro.jpg";
+  const currentPageUrl = `https://findgptpro.com/details/${post.web_id}`;
 
   return (
     <>
-      <SEO pageTitle={"GPT Details"} />
+      <Head>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:image" content={metaImage} />
+        <meta property="og:url" content={currentPageUrl} />
+        <meta name="keywords" content={keywords} />
+        <meta property="og:type" content="article" />
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metaTitle} />
+        <meta name="twitter:description" content={metaDescription} />
+        <meta name="twitter:image" content={metaImage} />
+        {/* Add other necessary meta tags here */}
+      </Head>
       <Header />
       <BgShape />
       <GPTDetailsArea webId={post.web_id} />
