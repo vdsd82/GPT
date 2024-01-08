@@ -1,6 +1,7 @@
 // pages/category/[category].js
 
 import React from "react";
+import Head from "next/head";
 import GPTList from "../../components/GPT/GPTList"; // Assume this component lists GPTs in a category
 import Header from "../../components/Home/Header";
 import SEO from "../../components/seo";
