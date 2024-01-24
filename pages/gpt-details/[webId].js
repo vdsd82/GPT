@@ -50,6 +50,7 @@ const gptDetails = ({ post }) => {
 };
 
 export default gptDetails;
+//Test
 
 export async function getStaticProps({ params }) {
   try {
