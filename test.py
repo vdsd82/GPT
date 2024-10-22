@@ -492,19 +492,41 @@ def generate_html_report(jobs_data):
     """
     return html
 
+
+
+# Add required parameters to args
+args = getResolvedOptions(sys.argv, [
+    'JOB_NAME',
+    'bucket_name',    # S3 bucket name
+    'folder_path',    # Folder path in bucket (optional)
+    'region'         # AWS region for S3 website URL
+])
+
+def get_s3_url(bucket_name, region):
+    """Generate S3 website URL based on region"""
+    return f"http://{bucket_name}.s3-website-{region}.amazonaws.com"
+
 def main():
-    args = getResolvedOptions(sys.argv, ['JOB_NAME'])
+    # Initialize Glue context
     sc = SparkContext()
     glueContext = GlueContext(sc)
     job = Job(glueContext)
     job.init(args['JOB_NAME'], args)
     
     try:
+        bucket_name = args['bucket_name']
+        folder_path = args['folder_path'].strip('/')  # Remove leading/trailing slashes
+        region = args['region']
+        
         glue_client = boto3.client('glue')
         s3_client = boto3.client('s3')
         
-        print("Fetching Glue jobs information...")
+        print(f"Starting ETL monitoring job with parameters:")
+        print(f"Bucket: {bucket_name}")
+        print(f"Folder: {folder_path}")
+        print(f"Region: {region}")
         
+        # Rest of your existing job processing code here...
         # Get all Glue jobs
         jobs = glue_client.get_jobs()['Jobs']
         job_details = []
@@ -528,20 +550,28 @@ def main():
         print("Generating HTML report...")
         html_content = generate_html_report(job_details)
         
-        # Save to S3
-        bucket_name = 'YOUR_BUCKET_NAME'  # Replace with your bucket name
-        print(f"Uploading report to S3 bucket: {bucket_name}")
+        # Construct S3 key with folder path
+        s3_key = f"{folder_path}/index.html" if folder_path else "index.html"
         
+        print(f"Uploading report to S3: {bucket_name}/{s3_key}")
+        
+        # Upload to S3
         s3_client.put_object(
             Bucket=bucket_name,
-            Key='index.html',
+            Key=s3_key,
             Body=html_content,
             ContentType='text/html',
             CacheControl='no-cache'
         )
-            
-        print("Dashboard generated and uploaded successfully!")
         
+        # Generate and print the URL where the dashboard will be available
+        website_url = get_s3_url(bucket_name, region)
+        if folder_path:
+            website_url = f"{website_url}/{folder_path}"
+        
+        print("\nDashboard deployment successful!")
+        print(f"Dashboard is available at: {website_url}")
+            
     except Exception as e:
         print(f"Error: {str(e)}")
         raise e
